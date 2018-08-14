@@ -7,14 +7,12 @@ $vsenha='12345';
 $vnome='Giovanny Dominico';
 $vtel= '(16) 9818725467';
 
-//Configurar Fuso Horário e inserir horário no Registro
-date_default_timezone_set('America/Sao_Paulo');
-$created_date = date("Y-m-d H:i:s");
-
+//Inserção de dados na Tabela
 $sql = 
-"INSERT INTO tb_usuario VALUES ('NULL', '$vlogin', '$vsenha', '$vnome', '$vtel','$created_date')";
+"INSERT INTO tb_usuario VALUES ('NULL', '$vlogin', '$vsenha', '$vnome', '$vtel'";
 
-echo "$vlogin $vsenha $vnome $vtel $created_date";
+$res=mysqli_query($con,$sql);
+echo "$vlogin $vsenha $vnome $vtel";
 
 mysqli_close($con);
 
@@ -96,7 +94,7 @@ mysqli_close($con);
           <div class="post-preview">
             <a href="post.html">
               <h2 class="post-title">
-                Man must explore, and this is exploration at its greatest
+                <?php echo $created_date?>
               </h2>
               <h3 class="post-subtitle">
                 Problems look mighty small from 150 miles up
