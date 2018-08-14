@@ -1,21 +1,20 @@
 <?php  
 
 include "conexao.inc";
-
-// $res=mysqli_query($con, "SELECT * FROM tb_usuario");
-// $linhas = mysqli_num_rows($res);
-// echo "Encontrados $linhas na tabela brow";
-
 // Variáveis para trabalhar dentro do banco de dados
 $vlogin='giods';
 $vsenha='12345';
 $vnome='Giovanny Dominico';
 $vtel= '(16) 9818725467';
 
-$sql = "INSERT INTO tb_usuario VALUES (NULL, '$vlogin', '$vsenha', '$vnome', '$vtel')";
+//Configurar Fuso Horário e inserir horário no Registro
+date_default_timezone_set('America/Sao_Paulo');
+$created_date = date("Y-m-d H:i:s");
 
-$res=mysqli_query($con,$sql);
-echo "$vlogin $vsenha $vnome $vtel";
+$sql = 
+"INSERT INTO tb_usuario VALUES ('NULL', '$vlogin', '$vsenha', '$vnome', '$vtel','$created_date')";
+
+echo "$vlogin $vsenha $vnome $vtel $created_date";
 
 mysqli_close($con);
 
